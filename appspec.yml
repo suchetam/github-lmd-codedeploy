@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+
+files:
+  - source: files
+    destination: /home/ec2-user/node
+
+
+hooks:
+  BeforeInstall:
+    - location: scripts/copyScripts.sh
+    - location: scripts/deleteScript.sh
+    - location: scripts/nodejs-server-stop.sh
+  AfterInstall:
+    - location: scripts/nodejs-server-start.sh
