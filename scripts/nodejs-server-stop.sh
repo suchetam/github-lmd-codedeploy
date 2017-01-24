@@ -1,4 +1,6 @@
 #!/bin/bash
+
+forever stopall
 forever stopall
 forever list >>nodejs-server-stop.log
 sudo yum update -y
@@ -8,13 +10,8 @@ sudo yum update -y
 #echo "copied file nodeserverstart"
 #aws s3 cp s3://lmd-scripts/myscript.sh /home/ec2-user/github-lmd-codedeploy/scripts/myscript.sh --sse aws:kms --sse-kms-key-id "341dafc3$"
 #echo "copied file myscript.sh"
-cd  /home/ec2-user/github-lmd-codedeploy
-unzip -o LMD.zip
-cp -R /home/ec2-user/github-lmd-codedeploy/LMD /home/ec2-user/node/
-chmod +x /home/ec2-user/github-lmd-codedeploy/scripts/nodejs-server-start.sh
-chmod +x /home/ec2-user/github-lmd-codedeploy/scripts/myscript.sh
-
-
-
-
-
+#cd  /home/ec2-user/github-lmd-codedeploy
+#unzip -o LMD.zip
+#cp -R /home/ec2-user/github-lmd-codedeploy/LMD /home/ec2-user/node/
+#chmod +x /home/ec2-user/github-lmd-codedeploy/scripts/nodejs-server-start.sh
+#chmod +x /home/ec2-user/github-lmd-codedeploy/scripts/myscript.sh

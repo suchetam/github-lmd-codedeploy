@@ -2,30 +2,14 @@ version: 0.0
 os: linux
 
 files:
-  - source: files/newpage.html
-    destination: /var/www/html
-
-permissions:
-  - object: /home/ec2-user
-  - owner: ec2-user
-    mode: 755
-    acls:
-      - u:ec2-user:rwx
+  - source: files
+    destination: /home/ec2-user/node
 
 
 hooks:
   BeforeInstall:
     - location: scripts/copyScripts.sh
-    - timeout: 300
-    - runas: ec2-user
+    - location: scripts/deleteScript.sh
     - location: scripts/nodejs-server-stop.sh
-    - timeout: 300
-    - runas: ec2-user
-    - location: scripts/nodejs-server-copycode.sh
-    - timeout: 300
-    - runas: ec2-user
   AfterInstall:
     - location: scripts/nodejs-server-start.sh
-    - timeout: 300
-    - runas: ec2-user
-

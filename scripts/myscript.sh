@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ $(ps -ef | grep forever | grep -v grep | wc -l)  -ge 1 ]; then
+if [ $(ps -ef | grep forever | grep -v grep | wc -l)  -gt 1 ]; then
         echo "Process is running"
         exit 0
 else
@@ -9,5 +9,5 @@ else
   cd /home/ec2-user/node/LMD/WebServiceLMD
   forever start --uid "testListenMD" --a www
   forever list
-  # forever restartall
+  forever restartall
 fi
